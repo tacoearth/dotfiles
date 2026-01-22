@@ -1,0 +1,11 @@
+[Unit]
+Description=NVIDIA Overclocking Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/nvidia_oc set --index 0 --freq-offset 200 --mem-offset 1600 --min-clock 2805 --max-clock 3000
+User=root
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

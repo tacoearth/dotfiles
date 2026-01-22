@@ -1,0 +1,15 @@
+[mgr]
+sort_by = "mtime"
+sort_dir_first = true
+linemode = "permission_and_size"
+
+[preview]
+wrap = "yes"
+tab_size = 2
+
+[open]
+prepend_rules = [
+	{ name = "*.c", use = "nvim" },
+	{ name = "*.cpp", use = "nvim" },
+]
+

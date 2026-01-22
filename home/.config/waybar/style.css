@@ -1,0 +1,174 @@
+* {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 16px;
+    transition-property: none;
+    transition-duration: 0.0s;
+    animation-timing-function: steps(1);
+    animation-duration: 0.0s;
+    border: none;
+    border-radius: 0;
+    
+}
+
+window#waybar {
+    background-color: #111111;
+    border: 2px solid #bfbfff;
+}
+
+#workspaces {
+     margin: 0px 0px 0px 0px;
+}
+
+#workspaces button {
+    color: #bfbfff;
+    background-color: transparent;
+    border-radius: 0px;
+    border: none;
+    font-weight: normal;
+    padding: 2px 8px 2px 8px;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    text-shadow: inherit;
+    color: #ffffff;
+    border: none;
+    text-decoration: underline;
+}
+
+#workspaces button.focused {
+    background: #bfbfff;
+    color: #111111;
+    text-decoration: underline;
+    border-radius: 0px;
+    font-weight: normal;
+}
+
+.modules-center{
+    color: #bfbfff;
+    margin-right: 7px;
+}
+
+#clock {
+	padding: 0px 12px 0px 12px;
+}
+
+#clock:hover{
+    color: #111111;
+    background-color: #bfbfff;
+}
+
+.modules-right{
+    color: #bfbfff;
+    margin: 0px 0px 0px 0px;
+}
+
+tooltip {
+    background: #111111;
+    border: 2px solid #bfbfff;
+    border-radius: 0px;
+    font-family: 'JetBrainsMono Nerd Font';
+}
+tooltip label {
+    color: white;
+    font-family: 'JetBrainsMono Nerd Font';
+}
+
+#tray {
+	border-left: 2px solid #bfbfff;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+}
+
+#custom-button {
+	color: #bfbfff;
+	padding: 2px 0px 2px 8px;
+}
+
+#bluetooth{
+	color: #111111;
+    background-color: #bfbfff;
+    text-shadow: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 9px;
+    padding-right: 8px;
+    border:none;
+}
+
+#bluetooth:hover{
+	color: #bfbfff;
+    background-color: transparent;
+    text-shadow: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 9px;
+    padding-right: 8px;
+    border:none;
+}
+
+#network {
+	color: #111111;
+    background-color: #bfbfff;
+    text-shadow: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 9px;
+    padding-right: 8px;
+    border:none;
+}
+
+#network:hover {
+	color: #bfbfff;
+    background-color: transparent;
+    text-shadow: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 9px;
+    padding-right: 8px;
+    border:none;
+}
+
+#battery,
+#wireplumber,
+#backlight {
+	padding: 0px 5px 0px 5px;
+}
+
+#custom-reboot {
+	color: #111111;
+    background-color: #bfbfff;
+	padding: 0px 11px 0px 8px;
+}
+
+#custom-poweroff {
+	color: #111111;
+    background-color: #bfbfff;
+	padding: 0px 12px 0px 8px;
+}
+
+#custom-lock {
+	color: #111111;
+    background-color: #bfbfff;
+	padding: 0px 11px 0px 8px;
+}
+
+#custom-lock:hover {
+	color: #bfbfff;
+    background-color: transparent;
+	padding: 0px 11px 0px 8px;
+}
+
+#custom-reboot:hover {
+	color: #bfbfff;
+    background-color: transparent;
+	padding: 0px 11px 0px 8px;
+}
+
+#custom-poweroff:hover {
+	color: #bfbfff;
+    background-color: transparent;
+	padding: 0px 12px 0px 8px;
+}
+
+

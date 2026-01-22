@@ -1,0 +1,11 @@
+[Unit]
+Description=CPUPower to Performance
+After=network.target
+
+[Service]
+ExecStart=cpupower frequency-set -g performance
+User=root
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

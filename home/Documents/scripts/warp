@@ -1,0 +1,11 @@
+#!/bin/sh
+
+TOGGLE=/home/taco/Documents/scripts/.toggle
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    warp-cli connect
+else
+    rm $TOGGLE
+    warp-cli disconnect
+fi

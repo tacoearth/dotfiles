@@ -1,0 +1,17 @@
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+MOZ_DISABLE_RDD_SANDBOX=1
+LIBVA_DRIVER_NAME=nvidia
+MOZ_ENABLE_WAYLAND=1
+XDG_MENU_PREFIX=arch-
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+GBM_BACKEND=nvidia-drm
+__GL_VRR_ALLOWED=1
+__GL_GSYNC_ALLOWED=1
+NVD_BACKEND=direct
+ELECTRON_OZONE_PLATFORM=wayland
+QT_QPA_PLATFORMTHEME=gtk3
+MENUCONFIG_STYLE=monochrome
+QT_WAYLAND_DECORATION=adwaita

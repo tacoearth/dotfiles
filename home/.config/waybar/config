@@ -1,0 +1,136 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin": "8 16 -4 16",
+  "fixed-center": true,
+  "mode": "dock", 
+  "exclusive": true,
+  "spacing" : 0,
+  "modules-left": [
+  "custom/button",
+  "niri/workspaces"
+  ],
+
+  "modules-center": ["clock"],
+
+  "niri/workspaces": {
+    "format": "<b>{value}</b>"
+  },
+
+  "modules-right": [
+  	"tray",
+    "network",
+    "bluetooth",
+    "wireplumber", 
+    "backlight",
+    "battery",
+    "custom/lock",
+    "custom/reboot",
+    "custom/poweroff"
+  ],
+  
+  "custom/poweroff": {
+  	"format": "",
+  	"on-click": "poweroff",
+  	"tooltip": false
+  },
+  
+  "custom/reboot": {
+  	"format": "",
+  	"on-click": "reboot",
+  	"tooltip": false
+  },
+
+  "custom/button": {
+  	"format": "󰙅 ",
+  	"on-click": "sh /home/taco/Documents/scripts/niri_fuzzel_switcher",
+  	"tooltip": false
+  },
+
+  "bluetooth": {
+    "format": "󰂲",
+    "format-on": "{icon}",
+    "format-off": "{icon}", 
+    "format-connected":"{icon}",
+    "format-icons":{
+        "on":"󰂯",
+        "off": "󰂲",
+        "connected": "󰂱",
+        },
+    "on-click": "blueman-manager",
+    "tooltip-format-connected":"{device_enumerate}"
+  },
+
+    "clock": {
+        "format": "   {:%b-%d  %I:%M%p  %A}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffffff'><b>{}</b></span>",
+                              "days":       "<span color='#ffffff'><b>{}</b></span>",
+                              "weeks":      "<span color='#bfbfff'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#bfbfff'><b>{}</b></span>",
+                              "today":      "<span color='#bfbfff'><b><u>{}</u></b></span>"
+                              }
+                    }
+    },
+
+  "network": {
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤠",
+    "interval": 2,
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "nmgui"
+
+ },
+  
+  "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
+        "tooltip": false
+  },
+  
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "helvum",
+    "tooltip": "{source_desc}",
+    "max-volume": 150.0
+  },
+
+  "battery": {
+        "interval":60,
+        "design-capacity": true,
+        "full-at": 97,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "alacritty -e battop"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+},
+
+  "custom/lock": {
+  	"format": "",
+  	"on-click": "hyprlock -q --no-fade-in",
+  	"tooltip": false
+}
+
+}

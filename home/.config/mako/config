@@ -1,0 +1,11 @@
+max-history=25
+font=JetBrainsMono Nerd Font 13
+background-color=#111111
+text-color=#bfbfff
+default-timeout=5000
+border-color=#bfbfff
+layer=top
+height=128
+width=384
+padding=8
+margin=28,28
