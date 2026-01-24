@@ -106,3 +106,10 @@ source $ZSH/oh-my-zsh.sh
 
 PROMPT='%F{#c7b3ff}%~ %F{#ffff88}$ %f'
 alias get_idf='. $HOME/esp-idf/export.sh ; cd /home/taco/Documents/code/esp/'
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
