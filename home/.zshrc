@@ -148,3 +148,19 @@ cf() {
         nvim "$1.cpp"
     fi
 }
+
+cpt() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: cpt <filename>"
+        return 1
+    fi
+    if [[ ! -f "$1" ]]; then
+        echo "Error: Source file '$1' not found."
+        return 1
+    fi
+    if [[ ! -f "input.txt" ]]; then
+        echo "Error: 'input.txt' not found in the current directory."
+        return 1
+    fi
+    clang++ -Wall -Wextra "$1" && ./a.out < input.txt
+}
