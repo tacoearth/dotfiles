@@ -11,7 +11,7 @@ switch-events {
 prefer-no-csd
 
 environment {
-    MOZ_DISABLE_RDD_SANDBOX "1"
+  MOZ_DISABLE_RDD_SANDBOX "1"
 	LIBVA_DRIVER_NAME "nvidia"
 	MOZ_ENABLE_WAYLAND "1"
 	XDG_MENU_PREFIX "arch-"
@@ -72,7 +72,7 @@ output "eDP-1" {
     mode "1920x1080@144.001"
     backdrop-color "#020202"
     background-color "#020202"
-    variable-refresh-rate // on-demand=true
+    variable-refresh-rate //on-demand=true
 
     scale 1
 
@@ -286,7 +286,7 @@ animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 1.0
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=300 epsilon=0.00001
     }
 
     window-open {
@@ -300,7 +300,7 @@ animations {
     }
 
     horizontal-view-movement {
-        spring damping-ratio=0.9 stiffness=800 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=300 epsilon=0.0001
     }
 
     window-movement {

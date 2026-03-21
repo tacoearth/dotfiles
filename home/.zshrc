@@ -113,3 +113,38 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+alias ssh='TERM="xterm-256color" ssh'
+alias hpc='ssh root@hpc.bits-hyderabad.ac.in'
+
+cses() {
+    cd ~/code/cc/cses/ || { echo "No such directory."; return 1; }
+    if [[ -z "$1" ]]; then
+        return 0
+        
+    elif [[ "$1" == "input" ]]; then
+        nvim input.txt
+        
+    else
+        if [[ ! -f "$1.cpp" ]]; then
+            cp template.cpp "$1.cpp"
+        fi
+        nvim "$1.cpp"
+    fi
+}
+
+cf() {
+    cd ~/code/cc/cf/ || { echo "No such directory."; return 1; }
+    if [[ -z "$1" ]]; then
+        return 0
+        
+    elif [[ "$1" == "input" ]]; then
+        nvim input.txt
+        
+    else
+        if [[ ! -f "$1.cpp" ]]; then
+            cp template.cpp "$1.cpp"
+        fi
+        nvim "$1.cpp"
+    fi
+}
