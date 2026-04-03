@@ -127,7 +127,7 @@ cses() {
         
     else
         if [[ ! -f "$1.cpp" ]]; then
-            cp template.cpp "$1.cpp"
+            cp ../template.cpp "$1.cpp"
         fi
         nvim "$1.cpp"
     fi
@@ -143,7 +143,7 @@ cf() {
         
     else
         if [[ ! -f "$1.cpp" ]]; then
-            cp template.cpp "$1.cpp"
+            cp ../template.cpp "$1.cpp"
         fi
         nvim "$1.cpp"
     fi

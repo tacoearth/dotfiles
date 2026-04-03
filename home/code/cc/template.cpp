@@ -48,7 +48,7 @@ template <class T> T total(T &container) {
 template <typename T> T mod(T x) { return x % (static_cast<ll>(1e9) + 7); }
 
 ll powmod(ll base, ll exp) {
-  ll ret;
+  ll ret = 1;
   repeat(exp) {
     ret *= base;
     ret = ret % (static_cast<ll>(1e9) + 7);
@@ -56,7 +56,7 @@ ll powmod(ll base, ll exp) {
   return ret;
 }
 
-const ll inf = LONG_LONG_MAX;
+#define inf LONG_LONG_MAX;
 
 ll factorial(ll x) {
   ll ret = 1;
