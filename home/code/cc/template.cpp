@@ -1,5 +1,5 @@
 /*********
-120j for solve()
+127j for solve()
 *********/
 
 #include <bits/stdc++.h>
@@ -15,9 +15,9 @@ typedef pair<long long, long long> pll;
 #define iterate(i, n) for (long long i = 1; i <= n; i++)
 #define riterate(i, n) for (long long i = n; i > 0; i++)
 
-vector<ll> in(int n) {
-  ll temp;
-  vector<ll> ret;
+template <class T> T in(int n) {
+  typename T::value_type temp;
+  T ret;
   repeat(n) {
     cin >> temp;
     ret.push_back(temp);
@@ -25,13 +25,19 @@ vector<ll> in(int n) {
   return ret;
 }
 
-template <class T> void out(T &container) {
-  for (const T &element : container)
-    cout << element << ' ';
-  cout << endl;
+template <class T> ostream &operator<<(ostream &ostream, T &container) {
+  if (container.empty())
+    return ostream;
+  else {
+    for (auto iterator = container.begin(); iterator != prev(container.end());
+         iterator++)
+      ostream << *iterator << ' ';
+    ostream << *(prev(container.end())) << '\n';
+    return ostream;
+  }
 }
 
-template <typename T> void print(T item) { cout << item << endl; }
+template <typename T> void print(T item) { cout << item << '\n'; }
 
 template <class T> void sortall(T &container) {
   sort(container.begin(), container.end());
@@ -56,7 +62,7 @@ ll powmod(ll base, ll exp) {
   return ret;
 }
 
-#define inf LONG_LONG_MAX;
+inline constexpr ll inf = LONG_LONG_MAX;
 
 ll factorial(ll x) {
   ll ret = 1;
@@ -125,8 +131,8 @@ int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int t;
-  cin >> t;
+  int t = 1;
+  // cin >> t;
   while (t--) {
     solve();
   }
