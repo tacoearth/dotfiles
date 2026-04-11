@@ -228,7 +228,7 @@ vim.keymap.set("n", "<leader>s", "<cmd>AerialToggle! left<CR>", { desc = "Toggle
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("autotools_ls", { cmd = { "autotools-language-server" }, filetypes = { "makefile", "make", "automake" }, root_markers = { "Makefile", "makefile", ".git" } })
-vim.lsp.config("clangd", { capabilities = capabilities, cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu", "--completion-style=detailed" } })
+vim.lsp.config("clangd", { capabilities = capabilities, cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu", "--completion-style=detailed", "--function-arg-placeholders=0" } })
 vim.lsp.config("marksman", { capabilities = capabilities })
 vim.lsp.config("bashls",   { capabilities = capabilities })
 vim.lsp.config("jsonls",   { capabilities = capabilities })
