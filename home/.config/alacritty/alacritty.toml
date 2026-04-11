@@ -91,23 +91,3 @@ thickness = 0.15
 
 [debug]
 prefer_egl = true
-
-[[keyboard.bindings]]
-key = "K"
-mods = "Alt"
-chars = "\u001b[A"
-
-[[keyboard.bindings]]
-key = "J"
-mods = "Alt"
-chars = "\u001b[B"
-
-[[keyboard.bindings]]
-key = "H"
-mods = "Alt"
-chars = "\u001b[D"
-
-[[keyboard.bindings]]
-key = "L"
-mods = "Alt"
-chars = "\u001b[C"

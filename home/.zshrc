@@ -164,3 +164,8 @@ cpt() {
     fi
     clang++ -Wall -Wextra "$1" && ./a.out < input.txt
 }
+
+bindkey "^[h" backward-char
+bindkey "^[j" down-line-or-history
+bindkey "^[k" up-line-or-history
+bindkey "^[l" forward-char
