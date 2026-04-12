@@ -265,7 +265,6 @@ spawn-at-startup "waybar"
 spawn-at-startup "awww-daemon"
 spawn-sh-at-startup "awww img /home/taco/Pictures/wallpaper.png"
 spawn-sh-at-startup "swaybg -i /home/taco/Pictures/wallpaperdesk.png"
-spawn-sh-at-startup "/home/taco/Documents/scripts/login.sh > /dev/null 2>&1"
 spawn-sh-at-startup "hyprlock -q --no-fade-in"
 spawn-sh-at-startup "easyeffects --gapplication-service"
 

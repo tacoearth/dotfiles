@@ -218,6 +218,11 @@ vim.keymap.set("t", "<A-j>", [[<C-\><C-n><C-w>j]], { desc = "Navigate Down" })
 vim.keymap.set("t", "<A-k>", [[<C-\><C-n><C-w>k]], { desc = "Navigate Up" })
 vim.keymap.set("t", "<A-l>", [[<C-\><C-n><C-w>l]], { desc = "Navigate Right" })
 
+vim.keymap.set("i", "<A-h>", [[<C-\><C-n><C-w>h]], { desc = "Navigate Left" })
+vim.keymap.set("i", "<A-j>", [[<C-\><C-n><C-w>j]], { desc = "Navigate Down" })
+vim.keymap.set("i", "<A-k>", [[<C-\><C-n><C-w>k]], { desc = "Navigate Up" })
+vim.keymap.set("i", "<A-l>", [[<C-\><C-n><C-w>l]], { desc = "Navigate Right" })
+
 local border_style = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" }
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -340,11 +345,55 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"]     = cmp.mapping.abort(),
     ["<CR>"]      = cmp.mapping.confirm({ select = true }),
+    
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then cmp.select_next_item() elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump() else fallback() end
+      if cmp.visible() then 
+        cmp.confirm({ select = true }) 
+      elseif luasnip.expand_or_jumpable() then 
+        luasnip.expand_or_jump() 
+      else 
+        fallback() 
+      end
     end, { "i", "s" }),
+    
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then cmp.select_prev_item() elseif luasnip.jumpable(-1) then luasnip.jump(-1) else fallback() end
+      if luasnip.jumpable(-1) then 
+        luasnip.jump(-1) 
+      else 
+        fallback() 
+      end
+    end, { "i", "s" }),
+
+    ["<A-h>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    
+    ["<A-j>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<A-k>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<A-l>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.confirm({ select = true })
+      else
+        fallback()
+      end
     end, { "i", "s" }),
   }),
   sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "luasnip" }, { name = "path" }, { name = "buffer" } }),

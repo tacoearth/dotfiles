@@ -15,7 +15,7 @@ typedef pair<long long, long long> pll;
 #define iterate(i, n) for (long long i = 1; i <= n; i++)
 #define riterate(i, n) for (long long i = n; i > 0; i++)
 
-template <class T> T in(int n) {
+template <class T> T input(ll n) {
   typename T::value_type temp;
   T ret;
   repeat(n) {
@@ -24,6 +24,8 @@ template <class T> T in(int n) {
   }
   return ret;
 }
+
+#define in(n) input<vll>(n)
 
 template <class T> ostream &operator<<(ostream &ostream, T &container) {
   if (container.empty())
