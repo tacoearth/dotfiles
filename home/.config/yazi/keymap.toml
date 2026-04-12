@@ -1,0 +1,5 @@
+[input]
+prepend_keymap = [
+    { on = [ "<A-h>" ], run = "move -1", desc = "Move cursor left" },
+    { on = [ "<A-l>" ], run = "move 1",  desc = "Move cursor right" },
+]

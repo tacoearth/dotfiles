@@ -3,7 +3,10 @@ Description=NVIDIA Overclocking Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/nvidia_oc set --index 0 --freq-offset 200 --mem-offset 1600 --min-clock 2805 --max-clock 3000
+Type=oneshot
+ExecStart=/usr/bin/nvidia_oc set --index 0 --freq-offset 200 --min-clock 2805 --max-clock 3000
+ExecStart=nvidia-smi -lmc 8800,8800
+ExecStart=cpupower frequency-set -g performance
 User=root
 Restart=on-failure
 

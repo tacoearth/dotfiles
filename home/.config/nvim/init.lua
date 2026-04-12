@@ -18,7 +18,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.config").setup({
-        ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+        ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "json", "jsonc" },
         highlight = { enable = true },
       })
     end,
@@ -55,6 +55,39 @@ require("lazy").setup({
   {
     "stevearc/aerial.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+    config = function()
+      local telescope = require("telescope")
+      telescope.setup({
+        defaults = {
+          path_display = { "smart" },
+          mappings = {
+            i = {
+              ["<C-j>"] = "move_selection_next",
+              ["<C-k>"] = "move_selection_previous",
+            },
+          },
+        },
+      })
+      pcall(telescope.load_extension, "fzf")
+    end,
+  },
+
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>-", "<cmd>Yazi<cr>", desc = "Open yazi at current file" },
+      { "<leader>cw", "<cmd>Yazi cwd<cr>", desc = "Open yazi in nvim cwd" },
+    },
+    opts = { open_for_directories = false },
   },
 
   "neovim/nvim-lspconfig",
@@ -127,7 +160,7 @@ require("lazy").setup({
 })
 
 vim.opt.number         = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.termguicolors  = true
 vim.opt.cursorline     = true
 vim.opt.tabstop        = 2
@@ -143,6 +176,7 @@ require("catppuccin").setup({
       enabled = true,
       underlines = { errors = { "undercurl" }, hints = { "undercurl" }, warnings = { "undercurl" }, information = { "undercurl" } },
     },
+    telescope = { enabled = true },
   },
   color_overrides = {
     mocha = {
@@ -167,6 +201,12 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>n", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = "Toggle Relative Numbers" })
+
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope: Find Files" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep,  { desc = "Telescope: Live Grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers,    { desc = "Telescope: Buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags,  { desc = "Telescope: Help Tags" })
 
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Navigate Left" })
 vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Navigate Down" })

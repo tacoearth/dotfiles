@@ -1,0 +1,11 @@
+[Unit]
+Description=Automatically login to BITS LAN
+After=network.target
+
+[Service]
+ExecStart=sh /home/taco/Documents/scripts/login.sh
+User=taco
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
