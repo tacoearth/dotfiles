@@ -1,5 +1,5 @@
 /*********
-127j for solve()
+taco's template
 *********/
 
 #include <bits/stdc++.h>
@@ -14,6 +14,7 @@ typedef pair<long long, long long> pll;
 #define repeat(x) for (int repeater = 0; repeater < x; repeater++)
 #define iterate(i, n) for (long long i = 1; i <= n; i++)
 #define riterate(i, n) for (long long i = n; i > 0; i++)
+#define nl '\n'
 
 template <class T> T input(ll n) {
   typename T::value_type temp;
@@ -27,16 +28,20 @@ template <class T> T input(ll n) {
 
 #define in(n) input<vll>(n)
 
-template <class T> ostream &operator<<(ostream &ostream, T &container) {
-  if (container.empty())
-    return ostream;
-  else {
-    for (auto iterator = container.begin(); iterator != prev(container.end());
-         iterator++)
-      ostream << *iterator << ' ';
-    ostream << *(prev(container.end())) << '\n';
-    return ostream;
+template <typename T,
+          typename enable_if<!is_same<T, string>::value, int>::type = 0,
+          typename = decltype(declval<const T &>().begin())>
+ostream &operator<<(ostream &os, const T &container) {
+  auto it = container.begin();
+  if (it != container.end()) {
+    os << *it;
+    it++;
   }
+  for (; it != container.end(); it++) {
+    os << ' ' << *it;
+  }
+  os << '\n';
+  return os;
 }
 
 template <typename T> void print(T item) { cout << item << '\n'; }
@@ -126,7 +131,6 @@ ll pow(ll base, int exponent) {
 void solve() {
   // per test case code goes here
   // in(n) returns the input vector of size n
-  
 }
 
 int main() {
