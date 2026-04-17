@@ -1,2 +1,18 @@
+[icon]
+prepend_dirs = [
+	{ name = "Code", text = "", fg = "#bfbfff" },
+	{ name = "Downloads", text = "", fg = "#bfbfff" },
+	{ name = "Documents", text = "", fg = "#bfbfff" },
+	{ name = "Pictures", text = "", fg = "#bfbfff" },
+	{ name = "Videos", text = "", fg = "#bfbfff" },
+	{ name = "Music", text = "", fg = "#bfbfff" },
+	{ name = "Games", text = "", fg = "#bfbfff" }
+]
+
+prepend_conds = [
+	{ if = "hidden & dir", text = "", fg = "#555555" },
+	{ if = "dir", text = "", fg = "#bfbfff" },
+]
+
 [flavor]
 dark = "catppuccin-mocha"

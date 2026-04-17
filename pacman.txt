@@ -196,3 +196,7 @@ zip
 zoxide
 zram-generator
 zsh
+zsh-autocomplete
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting

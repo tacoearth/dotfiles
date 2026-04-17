@@ -1,9 +1,15 @@
+builtin zstyle ':autocomplete:*:unambiguous' format $'%{\e[0;2m%}%Bcommon substring:%b %B%F{15}%d%f%b'
+
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
+export LS_COLORS="${LS_COLORS}:di=1;38;2;191;191;255"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -126,10 +132,10 @@ cses() {
         nvim input.txt
         
     else
-        if [[ ! -f "$1.cpp" ]]; then
-            cp ../template.cpp "$1.cpp"
+        if [[ ! -f "$1" ]]; then
+            cp ../template.cpp "$1"
         fi
-        nvim "$1.cpp"
+        nvim "$1"
     fi
 }
 
@@ -142,10 +148,10 @@ cf() {
         nvim input.txt
         
     else
-        if [[ ! -f "$1.cpp" ]]; then
-            cp ../template.cpp "$1.cpp"
+        if [[ ! -f "$1" ]]; then
+            cp ../template.cpp "$1"
         fi
-        nvim "$1.cpp"
+        nvim "$1"
     fi
 }
 
@@ -165,7 +171,14 @@ cpt() {
     clang++ -Wall -Wextra "$1" && ./a.out < input.txt
 }
 
+zstyle ':autocomplete:*:unambiguous' format 'common substring: %F{white}%B%d%b%f'
+zstyle ':completion:*:default' list-prompt '%F{white}%B(MORE)%b%f'
+zstyle ':completion:*:default' select-prompt '%F{white}%BScrolling: %p%b%f'
+
 bindkey "^[h" backward-char
 bindkey "^[j" down-line-or-history
 bindkey "^[k" up-line-or-history
 bindkey "^[l" forward-char
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
