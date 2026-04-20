@@ -54,11 +54,11 @@ template <class T> void rsortall(T &container) {
   sort(container.rbegin(), container.rend());
 }
 
-template <class T> T total(T &container) {
-  return accumulate(container.first(), container.end(), 0LL);
+template <class T> typename T::value_type total(T &container) {
+  return accumulate(container.begin(), container.end(), 0LL);
 }
 
-template <typename T> T mod(T x) { return x % (static_cast<ll>(1e9) + 7); }
+ll mod(ll x) { return x % (static_cast<ll>(1e9) + 7); }
 
 ll powmod(ll base, ll exp) {
   ll ret = 1;

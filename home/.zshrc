@@ -122,6 +122,7 @@ function y() {
 
 alias ssh='TERM="xterm-256color" ssh'
 alias hpc='ssh root@hpc.bits-hyderabad.ac.in'
+alias cl='~/Documents/scripts/codelayout.sh'
 
 cses() {
     cd ~/code/cc/cses/ || { echo "No such directory."; return 1; }
