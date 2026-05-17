@@ -11,6 +11,10 @@ export EDITOR="nvim"
 export LS_COLORS="${LS_COLORS}:di=1;38;2;191;191;255"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
 
+
+path+=('/home/taco/.cargo/bin/')
+export PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -125,7 +129,7 @@ alias hpc='ssh root@hpc.bits-hyderabad.ac.in'
 alias cl='~/Documents/scripts/codelayout.sh'
 
 cses() {
-    cd ~/code/cc/cses/ || { echo "No such directory."; return 1; }
+    cd ~/Code/cc/cses/ || { echo "No such directory."; return 1; }
     if [[ -z "$1" ]]; then
         return 0
         
@@ -141,7 +145,7 @@ cses() {
 }
 
 cf() {
-    cd ~/code/cc/cf/ || { echo "No such directory."; return 1; }
+    cd ~/Code/cc/cf/ || { echo "No such directory."; return 1; }
     if [[ -z "$1" ]]; then
         return 0
         
@@ -183,3 +187,4 @@ bindkey "^[l" forward-char
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$HOME/.local/bin:$PATH"

@@ -1,11 +1,12 @@
 battop
 bibata-cursor-theme
 cheese
+discord-chat-exporter-cli
+discord-chat-exporter-gui
 gpu-screen-recorder-gtk
-libva-intel-driver-irql
+inlyne-bin
 linux-wifi-hotspot
 nmgui
-paru
 paru-debug
 protonfixes
 qimgv

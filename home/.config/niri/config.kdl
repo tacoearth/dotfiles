@@ -281,7 +281,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 1.0
     workspace-switch {

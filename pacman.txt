@@ -18,6 +18,10 @@ bluez-utils
 breezy
 brightnessctl
 btop
+cachyos-keyring
+cachyos-mirrorlist
+cachyos-v3-mirrorlist
+cachyos-v4-mirrorlist
 cava
 ccache
 celluloid
@@ -86,11 +90,12 @@ lib32-vkd3d
 libappindicator
 libpulse
 libreoffice-fresh
+libva-intel-driver-irql
 libva-nvidia-driver
 libva-utils
+linux-cachyos
+linux-cachyos-headers
 linux-firmware
-linux-lqx
-linux-lqx-headers
 lldb
 lrzip
 lsp-plugins-lv2
@@ -125,6 +130,7 @@ opencl-nvidia
 openssh
 os-prober
 pacman-contrib
+paru
 pavucontrol
 perf
 piper
@@ -150,6 +156,7 @@ qt6-wayland
 qt6ct
 reflector
 resvg
+rust
 s-tui
 seahorse
 smartmontools

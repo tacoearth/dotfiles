@@ -273,10 +273,35 @@ vim.keymap.set("n", "<leader>s", "<cmd>AerialToggle! left<CR>", { desc = "Toggle
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("autotools_ls", { cmd = { "autotools-language-server" }, filetypes = { "makefile", "make", "automake" }, root_markers = { "Makefile", "makefile", ".git" } })
-vim.lsp.config("clangd", { capabilities = capabilities, cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed", "--function-arg-placeholders=0" } })
 vim.lsp.config("marksman", { capabilities = capabilities })
 vim.lsp.config("bashls",   { capabilities = capabilities })
 vim.lsp.config("jsonls",   { capabilities = capabilities })
+
+vim.lsp.config("clangd", {
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--clang-tidy-checks=bugprone-*",
+    "--header-insertion=never",
+    "--completion-style=detailed",
+    "--function-arg-placeholders=0",
+  },
+  init_options = {
+    fallbackFlags = {
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wnull-dereference",
+      "-Wvla",
+      "-D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE",
+      "-std=c++26",
+    },
+  },
+})
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("marksman")
@@ -344,7 +369,7 @@ cmp.setup({
     ["<C-f>"]     = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"]     = cmp.mapping.abort(),
-    ["<CR>"]      = cmp.mapping.confirm({ select = true }),
+    ["<CR>"]      = cmp.mapping(function(fallback) fallback() end),
     
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then 
