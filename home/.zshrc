@@ -188,3 +188,5 @@ bindkey "^[l" forward-char
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$HOME/.local/bin:$PATH"
+
+source ~/Code/vulkanSDK/default/setup-env.sh
